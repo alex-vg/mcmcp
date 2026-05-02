@@ -1,0 +1,23 @@
+name: CLA
+
+on:
+  pull_request_target:
+    types: [opened, synchronize, reopened]
+  issue_comment:
+    types: [created]
+
+jobs:
+  cla:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: contributor-assistant/github-action@v2.6.1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # Personal access token with repo scope — needed to push the
+          # signatures file back to the repository.
+          PERSONAL_ACCESS_TOKEN: ${{ secrets.CLA_TOKEN }}
+        with:
+          path-to-signatures: ".github/cla-signatures.json"
+          path-to-document: "https://github.com/alex-vg/mcmcp/blob/main/CLA.md"
+          branch: "main"
+          allowlist: bot*

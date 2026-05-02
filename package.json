@@ -1,0 +1,45 @@
+{
+  "name": "mcmcp",
+  "version": "0.1.0",
+  "description": "MCP proxy that slashes context-window token usage by hiding all upstream tools behind a single tool_tool interface. The model discovers and calls tools on-demand instead of receiving hundreds of definitions upfront. Supports stdio + SSE upstreams, OAuth, caching, rate limiting, and hot-reload.",
+  "license": "AGPL-3.0-only",
+  "type": "module",
+  "bin": {
+    "mcmcp": "dist/index.js"
+  },
+  "main": "dist/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alex-vg/mcmcp.git"
+  },
+  "keywords": ["mcp", "model-context-protocol", "proxy", "llm", "ai", "tool-tool"],
+  "engines": {
+    "node": ">=18"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "smoke": "tsx scripts/smoke-test.ts",
+    "test": "npx tsx --test src/*.test.ts",
+    "prepublishOnly": "npm run build"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.29.0",
+    "ajv": "^8.17.1"
+  },
+  "optionalDependencies": {
+    "@opentelemetry/api": "^1.9.1",
+    "@opentelemetry/exporter-trace-otlp-http": "^0.216.0",
+    "@opentelemetry/sdk-node": "^0.216.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.6.0"
+  }
+}

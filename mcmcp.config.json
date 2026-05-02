@@ -1,0 +1,17 @@
+{
+  "upstreams": [
+    {
+      "id": "filesystem",
+      "label": "Filesystem Tools",
+      "transport": "stdio",
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-filesystem", "/tmp"]
+    },
+    {
+      "id": "github",
+      "label": "GitHub Tools",
+      "transport": "sse",
+      "url": "http://localhost:3001/sse"
+    }
+  ]
+}

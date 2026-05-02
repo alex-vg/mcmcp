@@ -1,0 +1,13 @@
+node_modules/
+dist/
+
+# Runtime log files (created by mcmcp when logging is enabled)
+*.log
+*.log.1
+
+# Local environment overrides
+.env
+.env.local
+
+# Local config variants (keep mcmcp.config.json in source control as a sample)
+*.config.local.json

@@ -1,0 +1,23 @@
+version: 2
+updates:
+  # Keep npm dependencies up to date
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "monthly"
+      day: "1"
+    open-pull-requests-limit: 10
+    groups:
+      # Batch all non-breaking minor/patch updates into one PR
+      dependencies:
+        update-types:
+          - "minor"
+          - "patch"
+
+  # Keep GitHub Actions up to date
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "monthly"
+      day: "1"
+    open-pull-requests-limit: 5
